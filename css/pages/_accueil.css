@@ -44,6 +44,12 @@ h1 {
     margin-top: 2%;
 }
 
+.bloc {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -80,6 +86,22 @@ i {
     }
 
     /* MAIN */
-    
-    
+
+    .bloc {
+        display: block;
+    }
+
+    .container {
+        margin: 4em 0;
+    }
+
+    i {
+        margin-bottom: 0.1em;
+        font-size: 4em;
+    }
+
+    #doubleCarres .carre {
+        height: 45%;
+    }
+
 }

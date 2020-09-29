@@ -52,7 +52,13 @@ h3 {
     height:90px;
 }
 
+img:hover {
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+}
+
 #poll p {
-    margin: 1.5% 1%;
+    margin: 2.5% 1%;
     font-family: 'Roboto', sans-serif;
 }
