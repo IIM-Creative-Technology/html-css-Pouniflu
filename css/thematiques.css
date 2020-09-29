@@ -1,0 +1,58 @@
+/* HEADER */
+
+h2 {
+    margin: 0 0;
+    width: 80%;
+    font-family: 'Caveat', cursive;
+    font-size: 5em;
+    color: white;
+    text-shadow: 2px 2px 4px black;
+}
+
+
+/* MAIN */
+
+.them_main section:first-child {
+    margin-top: 4%;
+    display: flex;
+    justify-content: center;
+    height: 5vh;
+}
+
+.them_main input {
+    height: 5vh;
+    width: 85%;
+}
+
+#category {
+    display: flex;
+    justify-content: space-between;
+    margin: 4% auto;
+}
+
+h3 {
+    margin: 0 5% 2%;
+    font-family: 'Caveat', cursive;
+    font-size: 3em;
+    color: white;
+    text-shadow: 2px 2px 4px black;
+}
+
+#poll article {
+    display: flex;
+    margin: 2% 5%;
+}
+
+.them_main img {
+    background-position: center;
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px;
+    border-radius:50px;
+    width:90px;
+    height:90px;
+}
+
+#poll p {
+    margin: 1.5% 1%;
+    font-family: 'Roboto', sans-serif;
+}

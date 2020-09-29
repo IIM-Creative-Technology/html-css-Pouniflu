@@ -1,0 +1,67 @@
+/* HEADER */
+
+#classContainer {
+    width: 100%;
+    margin-left: 5%;
+}
+
+#classContainer p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+}
+
+/* MAIN */
+
+.result {
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: 5em;
+}
+
+/* Tableau */
+
+.class_main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.class_main img {
+    background-position: center;
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px;
+    border-radius:50px;
+    width:90px;
+    height:90px;
+}
+
+tr {
+    color: white;
+}
+
+th:first-child {
+    font-family: 'Caveat', cursive;
+    font-size: 2em;
+}
+
+tr td:nth-child(3), tr td:last-child {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em;
+}
+
+#me {
+    font-weight: 900;
+    color: #FFCA3A;
+}
+
+/* RESPONSIVE */
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+    
+
+
+    .result {
+        margin: 0.5em 0;
+        font-size: 3em;
+    }
+
+}
