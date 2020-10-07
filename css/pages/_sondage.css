@@ -16,6 +16,7 @@
 
 
 #container article{
+    width: 65vw;
     display: flex;
 }
 
