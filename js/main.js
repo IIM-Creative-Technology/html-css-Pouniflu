@@ -37,4 +37,30 @@ const polls = [
     ],
 ]
 
-document.getElementById('title').innerHTML = 'Hey la famille';
+// console.log(polls)
+
+// polls[poll1][question][0=questionTitle OU 1=answers][n° de la réponse].choice ou .isRight
+// console.log(polls[0][0][0]); 
+
+function display(sondages) {
+
+    // Boucle foreach pour afficher chaque poll
+    sondages.forEach(question => {
+
+        // Afficher la question
+        document.getElementById('title').innerHTML = question[0][0];
+
+        // Afficher les réponses
+        document.getElementById('choice1').innerHTML = question[0][1][0].choice;
+        document.getElementById('choice2').innerHTML = question[0][1][1].choice;
+        document.getElementById('choice3').innerHTML = question[0][1][2].choice;
+        document.getElementById('choice4').innerHTML = question[0][1][3].choice;
+
+    });
+
+    // Si on clique dessus et que isRight = True, alors on met +1 dans une variable
+
+
+}
+
+display(polls)
