@@ -32,77 +32,101 @@ const polls = [
     ],
 ]
 
-console.log(polls[0][0]);
+console.log(polls.length);
 
 // polls[poll1][question][0=questionTitle OU 1=answers][n° de la réponse].choice ou .isRight
 // console.log(polls[0][0][0]); 
 
-function display(sondages) {
+function sondage(sondages) {
 
     let score = 0;
     let i = 0;
-    while (i < sondages.length) {
+    let FirstChoice = document.getElementById('choice1');
+    let SecondChoice = document.getElementById('choice2');
+    let ThirdChoice = document.getElementById('choice3');
+    let FourthChoice = document.getElementById('choice4');
+    
+    // Fonction pour afficher les questions
+    function display(element) {
 
-        // Afficher la question
-        document.getElementById('title').innerHTML = sondages[i][0];
+        document.getElementById('score').innerHTML = score + '/' + sondages.length;
 
-        // Afficher les réponses
-        let FirstChoice = document.getElementById('choice1');
-        let SecondChoice = document.getElementById('choice2');
-        let ThirdChoice = document.getElementById('choice3');
-        let FourthChoice = document.getElementById('choice4');
+        if(element < sondages.length) {
+            // Afficher la question
+            document.getElementById('title').innerHTML = sondages[element][0];
 
-        FirstChoice.innerHTML = sondages[i][1][0].choice;
-        SecondChoice.innerHTML = sondages[i][1][1].choice;
-        ThirdChoice.innerHTML = sondages[i][1][2].choice;
-        FourthChoice.innerHTML = sondages[i][1][3].choice;
-
-
-        function alerte1() {
-            if(sondages[i][1][0].isRight === true) {
-                alert('Vrai');
-                score++;
-            } else if(sondages[i][1][0].isRight === false) {
-                alert('Faux');
-            } 
+            // Afficher les réponses
+            FirstChoice.innerHTML = sondages[element][1][0].choice;
+            SecondChoice.innerHTML = sondages[element][1][1].choice;
+            ThirdChoice.innerHTML = sondages[element][1][2].choice;
+            FourthChoice.innerHTML = sondages[element][1][3].choice;
+        } else {
+            alert('Fini !');
         }
-
-        function alerte2() {
-            if(sondages[i][1][1].isRight === true) {
-                alert('Vrai');
-                score++;
-            } else if(sondages[i][1][1].isRight === false) {
-                alert('Faux');
-            } 
-        }
-
-        function alerte3() {
-            if(sondages[i][1][2].isRight === true) {
-                alert('Vrai');
-                score++;
-            } else if(sondages[i][1][2].isRight === false) {
-                alert('Faux');
-            } 
-        }
-
-        function alerte4() {
-            if(sondages[i][1][3].isRight === true) {
-                alert('Vrai');
-                score++;
-            } else if(sondages[i][1][3].isRight === false) {
-                alert('Faux');
-            } 
-        }
-
-        FirstChoice.onclick = alerte1;
-        SecondChoice.onclick = alerte2;
-        ThirdChoice.onclick = alerte3;
-        FourthChoice.onclick = alerte4;
-
-
-        return;
+        
     }
+
+    // Afficher le premier sondage / pari
+    display(i);
+
+    function alerte1() {
+
+        if(sondages[i][1][0].isRight === true) {
+            alert('Vrai');
+            score++;
+            i++;
+            display(i);
+        } else if(sondages[i][1][0].isRight === false) {
+            alert('Faux');
+            i++;
+            display(i);
+        }
+    }
+
+    function alerte2() {
+        if(sondages[i][1][1].isRight === true) {
+            alert('Vrai');
+            score++;
+            i++;
+            display(i);
+        } else if(sondages[i][1][1].isRight === false) {
+            alert('Faux');
+            i++;
+            display(i);
+        } 
+    }
+
+    function alerte3() {
+        if(sondages[i][1][2].isRight === true) {
+            alert('Vrai');
+            score++;
+            i++;
+            display(i);
+        } else if(sondages[i][1][2].isRight === false) {
+            alert('Faux');
+            i++;
+            display(i);
+        } 
+    }
+
+    function alerte4() {
+        if(sondages[i][1][3].isRight === true) {
+            alert('Vrai');
+            score++;
+            i++;
+            display(i);
+        } else if(sondages[i][1][3].isRight === false) {
+            alert('Faux');
+            i++;
+            display(i);
+        } 
+    }
+
+    FirstChoice.onclick = alerte1;
+    SecondChoice.onclick = alerte2;
+    ThirdChoice.onclick = alerte3;
+    FourthChoice.onclick = alerte4;
 
 }
 
-display(polls)
+sondage(polls)
