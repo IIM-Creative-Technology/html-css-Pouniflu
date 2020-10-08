@@ -1,0 +1,70 @@
+/* COULEUR ET CARRE DU SITE */
+#blue {
+    background-color: #1982C4;
+}
+
+#yellow{
+    background-color: #FFCA3A;
+}
+
+#red {
+    background-color: #FF595E;
+}
+
+#green {
+    background-color: #8AC926;
+}
+
+.carre {
+    height: 10vh;
+    width: 5vw;
+    box-shadow: 5px 5px 5px 0 black;
+    border-radius: 20px;
+}
+
+.auto {
+    height: auto;
+    width: 5vw;
+    box-shadow: 5px 5px 5px 0 black;
+    border-radius: 20px;
+}
+
+p, span {
+    color: white;
+}
+
+/* RESPONSIVE */
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+    
+    .carre:first-child {
+        box-shadow: none;
+        border-radius: 0 10px 10px 0;
+    }
+
+    .carre:last-child {
+        box-shadow: none;
+        border-radius: 10px 0 0 10px;
+    }
+
+    .auto:first-child {
+        box-shadow: none;
+        border-radius: 0 10px 10px 0;
+    }
+    
+    .auto:last-child {
+        box-shadow: none;
+        border-radius: 10px 0 0 10px;
+    }
+
+    /* accueil.css */
+    #doubleCarres:first-child .carre:not(#red){
+        box-shadow: none;
+        border-radius: 0 10px 10px 0;
+    }
+
+    #doubleCarres:last-child .carre:not(#green){
+        box-shadow: none;
+        border-radius: 10px 0 0 10px;
+    }
+
+}

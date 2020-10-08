@@ -1,0 +1,60 @@
+body {
+    cursor: default;
+    margin: 0 4%;
+    background-color: #6A4C93;
+}
+
+/* NAV */
+
+nav {
+    padding: 2% 10% 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+a {
+    padding: 1% 1% 1% 1%;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+    color: white;
+}
+
+nav a:hover {
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+/* FOOTER */
+
+footer {
+    margin: 0 0;
+    height: 5vh;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.8em;
+    color: white;
+}
+
+/* RESPONSIVE */
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+    
+    body {
+        margin: 0 0;
+    }
+
+    nav {
+        padding: 4% 1% 0% 1%;
+    }
+
+    a {
+        font-size: 1.2em;
+    }
+
+    footer {
+        height: 3vh;
+    }
+
+}
