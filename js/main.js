@@ -32,12 +32,17 @@ const polls = [
     ],
 ]
 
+const classement = [
+    {name : 'Claire', point : 32},
+    {name : 'Jean', point : 53},
+]
+
 console.log(polls.length);
 
 // polls[poll1][question][0=questionTitle OU 1=answers][n° de la réponse].choice ou .isRight
 // console.log(polls[0][0][0]); 
 
-function sondage(sondages) {
+function sondage(sondages, result) {
 
     let score = 0;
     let i = 0;
@@ -45,6 +50,8 @@ function sondage(sondages) {
     let SecondChoice = document.getElementById('choice2');
     let ThirdChoice = document.getElementById('choice3');
     let FourthChoice = document.getElementById('choice4');
+    let popUp = document.getElementById('popup');
+    let total = document.getElementById('total');
     
     // Fonction pour afficher les questions
     function display(element) {
@@ -60,10 +67,29 @@ function sondage(sondages) {
             SecondChoice.innerHTML = sondages[element][1][1].choice;
             ThirdChoice.innerHTML = sondages[element][1][2].choice;
             FourthChoice.innerHTML = sondages[element][1][3].choice;
+
         } else {
-            alert('Fini !');
+            points = Math.floor((score * 100) / sondages.length);
+
+            popUp.style.display = "initial";
+            total.style.fontFamily = "'Roboto', sans-serif";
+            total.style.color = "black";
+            total.innerHTML = "Tu as " + score + " réponse(s) bonne(s) sur " + sondages.length + ". Tu as obtenu " + points + " points sur 100.";
+
+            document.getElementById('check').addEventListener("click", function(){
+                
+                // Mettre dans une variable le prénom + nom ou pseudo du joueur
+                let player = document.getElementById('nickname').value;
+
+                const obj = {};
+                obj['name'] = player;
+                obj['point'] = points;
+                result.push(obj);
+                console.log(result);
+
+                popUp.style.display = "none";
+            });
         }
-        
     }
 
     // Afficher le premier sondage / pari
@@ -72,12 +98,10 @@ function sondage(sondages) {
     function alerte1() {
 
         if(sondages[i][1][0].isRight === true) {
-            alert('Vrai');
             score++;
             i++;
             display(i);
         } else if(sondages[i][1][0].isRight === false) {
-            alert('Faux');
             i++;
             display(i);
         }
@@ -85,12 +109,10 @@ function sondage(sondages) {
 
     function alerte2() {
         if(sondages[i][1][1].isRight === true) {
-            alert('Vrai');
             score++;
             i++;
             display(i);
         } else if(sondages[i][1][1].isRight === false) {
-            alert('Faux');
             i++;
             display(i);
         } 
@@ -98,12 +120,10 @@ function sondage(sondages) {
 
     function alerte3() {
         if(sondages[i][1][2].isRight === true) {
-            alert('Vrai');
             score++;
             i++;
             display(i);
         } else if(sondages[i][1][2].isRight === false) {
-            alert('Faux');
             i++;
             display(i);
         } 
@@ -111,12 +131,10 @@ function sondage(sondages) {
 
     function alerte4() {
         if(sondages[i][1][3].isRight === true) {
-            alert('Vrai');
             score++;
             i++;
             display(i);
         } else if(sondages[i][1][3].isRight === false) {
-            alert('Faux');
             i++;
             display(i);
         } 
@@ -129,4 +147,4 @@ function sondage(sondages) {
 
 }
 
-sondage(polls)
+sondage(polls, classement)
