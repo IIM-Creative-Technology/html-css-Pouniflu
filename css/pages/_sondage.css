@@ -85,6 +85,7 @@
     background-color: rgb(0, 0, 0, 0.6);
 }
 
+/* pop up formulaire */
 .popupContent {
     position: absolute;
     top: 18em;
@@ -95,7 +96,7 @@
     border-radius: 30px;
 }
 
-.popupInput {
+#popupInput {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -111,7 +112,7 @@ h4 {
     color: black;
 }
 
-.popupInput input {
+#popupInput input {
     width: 20em;
     padding: 8px;
     margin-top: 1em;
@@ -131,4 +132,20 @@ h4 {
     font-family: 'Roboto', sans-serif;
     font-size: 1em;
     font-weight: bold;
+}
+
+/* pop up classement */
+#popupClassement {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+#popupClassement div {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.4em;
+    color: black;
 }
