@@ -37,8 +37,6 @@ const classement = [
     {name : 'Jean', point : 53},
 ]
 
-console.log(polls.length);
-
 // polls[poll1][question][0=questionTitle OU 1=answers][n° de la réponse].choice ou .isRight
 // console.log(polls[0][0][0]); 
 
@@ -51,6 +49,8 @@ function sondage(sondages, result) {
     let ThirdChoice = document.getElementById('choice3');
     let FourthChoice = document.getElementById('choice4');
     let popUp = document.getElementById('popup');
+    let popUpInput = document.getElementById('popupInput');
+    let popUpClassement = document.getElementById('popupClassement');
     let total = document.getElementById('total');
     
     // Fonction pour afficher les questions
@@ -76,7 +76,9 @@ function sondage(sondages, result) {
             total.style.color = "black";
             total.innerHTML = "Tu as " + score + " réponse(s) bonne(s) sur " + sondages.length + ". Tu as obtenu " + points + " points sur 100.";
 
-            document.getElementById('check').addEventListener("click", function(){
+            document.getElementById('check').addEventListener("click", displayScore);
+            
+            function displayScore(){
                 
                 // Mettre dans une variable le prénom + nom ou pseudo du joueur
                 let player = document.getElementById('nickname').value;
@@ -87,15 +89,23 @@ function sondage(sondages, result) {
                 result.push(obj);
                 console.log(result);
 
-                popUp.style.display = "none";
-            });
+                popUpInput.style.display = "none";
+                popUpClassement.style.display = "flex";
+
+                let addUser = document.createElement('div');
+                addUser.innerHTML = 'TOI : ' + player + ' - ' + points + ' point(s)';
+                let parent = document.getElementById('reference');
+                let divParent = parent.parentNode;
+
+                divParent.insertBefore(addUser, parent);
+            };
         }
     }
 
     // Afficher le premier sondage / pari
     display(i);
 
-    function alerte1() {
+    function choice1() {
 
         if(sondages[i][1][0].isRight === true) {
             score++;
@@ -107,7 +117,7 @@ function sondage(sondages, result) {
         }
     }
 
-    function alerte2() {
+    function choice2() {
         if(sondages[i][1][1].isRight === true) {
             score++;
             i++;
@@ -118,7 +128,7 @@ function sondage(sondages, result) {
         } 
     }
 
-    function alerte3() {
+    function choice3() {
         if(sondages[i][1][2].isRight === true) {
             score++;
             i++;
@@ -129,7 +139,7 @@ function sondage(sondages, result) {
         } 
     }
 
-    function alerte4() {
+    function choice4() {
         if(sondages[i][1][3].isRight === true) {
             score++;
             i++;
@@ -140,10 +150,10 @@ function sondage(sondages, result) {
         } 
     }
 
-    FirstChoice.onclick = alerte1;
-    SecondChoice.onclick = alerte2;
-    ThirdChoice.onclick = alerte3;
-    FourthChoice.onclick = alerte4;
+    FirstChoice.onclick = choice1;
+    SecondChoice.onclick = choice2;
+    ThirdChoice.onclick = choice3;
+    FourthChoice.onclick = choice4;
 
 }
 
